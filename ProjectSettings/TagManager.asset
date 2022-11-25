@@ -7,14 +7,16 @@ TagManager:
   - Walls
   - Water
   - Batterie
+  - Aspiration
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
