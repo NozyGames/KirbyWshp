@@ -9,6 +9,7 @@ TagManager:
   - Batterie
   - Aspiration
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
