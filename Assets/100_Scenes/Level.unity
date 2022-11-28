@@ -627,8 +627,8 @@ MonoBehaviour:
   distray: 1
   jumpForce: 0
   onGround: 0
-  rb: {fileID: 0}
   pe: {fileID: 1309076684}
+  sr: {fileID: 0}
 --- !u!50 &94203432
 Rigidbody2D:
   serializedVersion: 4
@@ -650,8 +650,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &94203433
-BoxCollider2D:
+--- !u!58 &94203433
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -664,18 +664,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &117987147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2197,7 @@ GameObject:
   - component: {fileID: 632682046}
   - component: {fileID: 632682047}
   - component: {fileID: 632682048}
+  - component: {fileID: 632682049}
   m_Layer: 3
   m_Name: Exit
   m_TagString: Untagged
@@ -2328,6 +2319,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &632682049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632682044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50992d32a9093e48b6c2509260c946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!1 &644813457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,6 +2344,7 @@ GameObject:
   - component: {fileID: 644813459}
   - component: {fileID: 644813460}
   - component: {fileID: 644813461}
+  - component: {fileID: 644813462}
   m_Layer: 3
   m_Name: Door3
   m_TagString: Untagged
@@ -2461,6 +2466,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &644813462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644813457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50992d32a9093e48b6c2509260c946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!1 &667588583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,6 +2809,7 @@ GameObject:
   - component: {fileID: 763499115}
   - component: {fileID: 763499116}
   - component: {fileID: 763499117}
+  - component: {fileID: 763499118}
   m_Layer: 3
   m_Name: Door2
   m_TagString: Untagged
@@ -2806,7 +2825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763499113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.0828, y: 1.817, z: -0.016569052}
+  m_LocalPosition: {x: 5.082, y: 1.83, z: -0.016569052}
   m_LocalScale: {x: 1.5043164, y: 0.23, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2912,6 +2931,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &763499118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763499113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50992d32a9093e48b6c2509260c946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 1
 --- !u!1 &858130641
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,6 +4246,7 @@ GameObject:
   - component: {fileID: 1132504501}
   - component: {fileID: 1132504502}
   - component: {fileID: 1132504503}
+  - component: {fileID: 1132504504}
   m_Layer: 3
   m_Name: Door1
   m_TagString: Untagged
@@ -4335,6 +4368,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1132504504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132504499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50992d32a9093e48b6c2509260c946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 1
 --- !u!1 &1154931238
 GameObject:
   m_ObjectHideFlags: 0
@@ -6957,6 +7003,7 @@ GameObject:
   - component: {fileID: 2047366811}
   - component: {fileID: 2047366812}
   - component: {fileID: 2047366813}
+  - component: {fileID: 2047366814}
   m_Layer: 3
   m_Name: Door1 (1)
   m_TagString: Untagged
@@ -6973,7 +7020,7 @@ Transform:
   m_GameObject: {fileID: 2047366809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.48, y: 9.3229, z: -0.016569052}
-  m_LocalScale: {x: 0.23, y: 1.9737564, z: 1}
+  m_LocalScale: {x: 0.23, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 958228804}
@@ -7078,6 +7125,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2047366814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047366809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b50992d32a9093e48b6c2509260c946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!1 &2066162695
 GameObject:
   m_ObjectHideFlags: 0
@@ -7902,6 +7962,18 @@ PrefabInstance:
     - target: {fileID: 6271259283216469727, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
       propertyPath: m_Name
       value: Ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}

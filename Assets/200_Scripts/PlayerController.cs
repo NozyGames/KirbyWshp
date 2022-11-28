@@ -8,14 +8,15 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public bool onGround;
     [HideInInspector]
-    public Rigidbody2D rb;
-    [HideInInspector]
     public PowerEffects pe;
+    public SpriteRenderer sr;
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         distray = 1;
         rb = this.GetComponent<Rigidbody2D>();
+        sr = this.GetComponent<SpriteRenderer>();
         jumpForce = 5f;
     }
 
@@ -34,13 +35,14 @@ public class PlayerController : MonoBehaviour
         bool dropPower = Input.GetButtonUp("Drop");
         if (dropPower && power >= 0)
         {
+            sr.color = new Color(255, 255, 255);
             power = 0;
             jumpForce = 5f;
         }
         bool absorption = Input.GetButtonDown("Absorb");
         if (absorption && power == 0) OnAbsorption();
         #endregion
-        #region SpriteRenderer
+        #region Distray Inversion
         if (horizontalInput >= 0)
         {
             distray = 1;
@@ -51,12 +53,15 @@ public class PlayerController : MonoBehaviour
         switch (power)
         {
             case 1:
+                sr.color = new Color(255, 0, 0);
                 pe.FirePower();
                 break;
             case 2:
+                sr.color = new Color(0, 255, 255);
                 pe.IcePower();
                 break;
             case 3:
+                sr.color = new Color(255, 228, 0);
                 pe.ElectricPower();
                 break;
         }
