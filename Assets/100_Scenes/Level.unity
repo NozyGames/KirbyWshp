@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 94203431}
   - component: {fileID: 94203432}
   - component: {fileID: 94203433}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,8 +627,10 @@ MonoBehaviour:
   distray: 1
   jumpForce: 0
   onGround: 0
+  horizontalInput: 0
   pe: {fileID: 1309076684}
   sr: {fileID: 0}
+  powerAction: 0
 --- !u!50 &94203432
 Rigidbody2D:
   serializedVersion: 4
@@ -4065,7 +4067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.016569052
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4810,6 +4812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pc: {fileID: 94203431}
+  IceBullet: {fileID: 7083830176340229251, guid: ff8b4aef93dba514ba34eea41806bc71, type: 3}
+  ElectricShield: {fileID: 677125354328587747, guid: bb34dbc24c1254b438a917079f7fa808, type: 3}
 --- !u!4 &1309076685
 Transform:
   m_ObjectHideFlags: 0
@@ -6195,7 +6199,7 @@ GameObject:
   - component: {fileID: 1817917883}
   - component: {fileID: 1817917884}
   - component: {fileID: 1817917885}
-  m_Layer: 3
+  m_Layer: 4
   m_Name: Waterwall
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -6547,11 +6551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.984534
+      value: 6.98
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.033138104
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7867,7 +7871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.016569052
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8087313302771875465, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7962,18 +7966,6 @@ PrefabInstance:
     - target: {fileID: 6271259283216469727, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
       propertyPath: m_Name
       value: Ice
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6558607088401591340, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}

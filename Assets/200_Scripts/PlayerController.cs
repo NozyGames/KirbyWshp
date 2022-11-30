@@ -8,8 +8,13 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public bool onGround;
     [HideInInspector]
+    public float horizontalInput;
+    [HideInInspector]
     public PowerEffects pe;
+    [HideInInspector]
     public SpriteRenderer sr;
+    [HideInInspector]
+    public bool powerAction;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -24,7 +29,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region controller
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(speed * horizontalInput * Time.deltaTime, 0, 0);
         bool jumpInput = Input.GetButton("Jump");
         if (jumpInput && onGround)
@@ -38,9 +43,10 @@ public class PlayerController : MonoBehaviour
             sr.color = new Color(255, 255, 255);
             power = 0;
             jumpForce = 5f;
+            this.gameObject.layer = 7;
         }
-        bool absorption = Input.GetButtonDown("Absorb");
-        if (absorption && power == 0) OnAbsorption();
+        powerAction = Input.GetButtonDown("PowerAction");
+        if (powerAction && power == 0) OnAbsorption();
         #endregion
         #region Distray Inversion
         if (horizontalInput >= 0)
@@ -58,11 +64,11 @@ public class PlayerController : MonoBehaviour
                 break;
             case 2:
                 sr.color = new Color(0, 255, 255);
-                pe.IcePower();
+                if (powerAction) pe.IcePower();
                 break;
             case 3:
                 sr.color = new Color(255, 228, 0);
-                pe.ElectricPower();
+                if (powerAction) pe.ElectricPower();
                 break;
         }
         #endregion
