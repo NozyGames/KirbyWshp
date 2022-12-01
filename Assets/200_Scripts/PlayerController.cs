@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 1.8f;
+    public float speed = 1.5f;
     public int power;
     public int distray;
     public float jumpForce;
@@ -31,7 +30,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region Controller
+        #region controller
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(speed * horizontalInput * Time.deltaTime, 0, 0);
         bool jumpInput = Input.GetButton("Jump");
@@ -47,7 +46,7 @@ public class PlayerController : MonoBehaviour
             power = 0;
             jumpForce = 5f;
             this.gameObject.layer = 7;
-            speed = 1.8f;
+            speed = 1.5f;
             Enemies[0].SetActive(true);
             Enemies[1].SetActive(true);
             Enemies[2].SetActive(true);
@@ -62,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
         else distray = -1;
         #endregion
-        #region Power
+        #region power
         switch (power)
         {
             case 1:
@@ -87,7 +86,7 @@ public class PlayerController : MonoBehaviour
         int layerMask = 1 << 6;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * distray, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), distray, layerMask);
-        if (!hit || hit.collider.gameObject.name == "Neutral" || hit.collider.gameObject.name == "Batteire 1" || hit.collider.gameObject.name == "Batterie 2") return;
+        if (!hit) return;
         switch (hit.collider.gameObject.name)
         {
             case "Fire":
@@ -104,12 +103,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (collision.collider.gameObject.name == "EndBox")
-        {
-            SceneManager.LoadScene(1);
-        }
         onGround = true;
     }
 }

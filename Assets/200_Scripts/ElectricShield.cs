@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ElectricShield : MonoBehaviour
 {
-    PlayerController pc;
+    public PlayerController pc;
     void Start()
     {
         pc = FindObjectOfType<PlayerController>();
@@ -21,7 +21,7 @@ public class ElectricShield : MonoBehaviour
         else if (!pc.powerAction)
         {
             Destroy(this.gameObject);
-            pc.speed = 1.8f;
+            pc.speed = 1.5f;
         }
     }
 }
