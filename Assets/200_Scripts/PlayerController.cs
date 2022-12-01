@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public int distray;
     public float jumpForce;
     public bool onGround;
+    [SerializeField]
+    private GameObject[] Enemies;
     [HideInInspector]
     public float horizontalInput;
     [HideInInspector]
@@ -38,14 +40,18 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
         bool dropPower = Input.GetButtonUp("Drop");
-        if (dropPower && power >= 0)
+        if (dropPower && power != 0)
         {
             sr.color = new Color(255, 255, 255);
             power = 0;
             jumpForce = 5f;
             this.gameObject.layer = 7;
+            speed = 1.5f;
+            Enemies[0].SetActive(true);
+            Enemies[1].SetActive(true);
+            Enemies[2].SetActive(true);
         }
-        powerAction = Input.GetButtonDown("PowerAction");
+        powerAction = Input.GetButton("PowerAction");
         if (powerAction && power == 0) OnAbsorption();
         #endregion
         #region Distray Inversion
@@ -80,21 +86,20 @@ public class PlayerController : MonoBehaviour
         int layerMask = 1 << 6;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * distray, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), distray, layerMask);
+        if (!hit) return;
         switch (hit.collider.gameObject.name)
         {
             case "Fire":
-                Destroy(hit.collider.gameObject);
                 power = 1;
                 break;
             case "Ice":
-                Destroy(hit.collider.gameObject);
                 power = 2;
                 break;
             case "Electric":
-                Destroy(hit.collider.gameObject);
                 power = 3;
                 break;
         }
+        hit.collider.gameObject.SetActive(false);
     }
     #endregion
 

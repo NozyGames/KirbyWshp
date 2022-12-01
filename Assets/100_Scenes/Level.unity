@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5577090 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 714560067099107386, guid: ec89a2501b5b5284d8643970e3b58eba, type: 3}
+  m_PrefabInstance: {fileID: 714560067505195453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &10529528
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +261,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &32544342 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7664108498161360114, guid: ae17c8e8aa8c26047a7100081bcdbaea, type: 3}
+  m_PrefabInstance: {fileID: 1865478821133004620}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &76978623
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94203428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.95, y: -4.14, z: 0}
+  m_LocalPosition: {x: -7.93, y: -4.09, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -627,6 +637,10 @@ MonoBehaviour:
   distray: 1
   jumpForce: 0
   onGround: 0
+  Enemies:
+  - {fileID: 32544342}
+  - {fileID: 1158699287}
+  - {fileID: 5577090}
   horizontalInput: 0
   pe: {fileID: 1309076684}
   sr: {fileID: 0}
@@ -4516,6 +4530,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1158699287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6271259283216469727, guid: 98fbf87a39e3fe74dbb7a33f625191ab, type: 3}
+  m_PrefabInstance: {fileID: 8157223503845974511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1183992542
 GameObject:
   m_ObjectHideFlags: 0

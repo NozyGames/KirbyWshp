@@ -14,7 +14,8 @@ public class PowerEffects : MonoBehaviour
 
     public void IcePower()
     {
-        Instantiate(IceBullet, pc.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
+        bool isThereBullet = FindObjectOfType<IceBullet>();
+        if (!isThereBullet) Instantiate(IceBullet, pc.GetComponent<Transform>().position, Quaternion.Euler(0, 0, 0));
         pc.gameObject.layer = 9;
     }
 
