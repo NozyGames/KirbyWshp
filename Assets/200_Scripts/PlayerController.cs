@@ -4,13 +4,16 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1.8f;
+	float walkAcceleration;
+	float groundDeceleration;
+	BoxCollider2D boxCollider;
+	Vector2 velocity;
     public int power;
     public int distray;
     public float jumpForce;
     public bool onGround;
     [SerializeField]
     private GameObject[] Enemies;
-    [HideInInspector]
     public float horizontalInput;
     [HideInInspector]
     public PowerEffects pe;
@@ -32,8 +35,30 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region Controller
-        horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(speed * horizontalInput * Time.deltaTime, 0, 0);
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+		if (horizontalInput != 0)
+		{
+			velocity.x = Mathf.MoveTowards(velocity.x, speed * horizontalInput, walkAcceleration * Time.deltaTime);
+		}
+		else
+		{
+			velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
+		}
+		
+		Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
+		foreach (Collider2D hit in hits)
+{
+		if (hit == boxCollider)
+		continue;
+
+		ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
+
+		if (colliderDistance.isOverlapped)
+		{
+			transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
+		}
+}
+		
         bool jumpInput = Input.GetButton("Jump");
         if (jumpInput && onGround)
         {
@@ -56,10 +81,7 @@ public class PlayerController : MonoBehaviour
         if (powerAction && power == 0) OnAbsorption();
         #endregion
         #region Distray Inversion
-        if (horizontalInput >= 0)
-        {
-            distray = 1;
-        }
+        if (horizontalInput >= 0) distray = 1;
         else distray = -1;
         #endregion
         #region Power
