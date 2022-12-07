@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1.8f;
-	float walkAcceleration;
-	float groundDeceleration;
-	BoxCollider2D boxCollider;
-	Vector2 velocity;
     public int power;
     public int distray;
     public float jumpForce;
@@ -22,6 +18,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool powerAction;
     Rigidbody2D rb;
+
+    private void Awake()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,28 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         #region Controller
         horizontalInput = Input.GetAxisRaw("Horizontal");
-		if (horizontalInput != 0)
-		{
-			velocity.x = Mathf.MoveTowards(velocity.x, speed * horizontalInput, walkAcceleration * Time.deltaTime);
-		}
-		else
-		{
-			velocity.x = Mathf.MoveTowards(velocity.x, 0, groundDeceleration * Time.deltaTime);
-		}
-		
-		Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxCollider.size, 0);
-		foreach (Collider2D hit in hits)
-{
-		if (hit == boxCollider)
-		continue;
 
-		ColliderDistance2D colliderDistance = hit.Distance(boxCollider);
-
-		if (colliderDistance.isOverlapped)
-		{
-			transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
-		}
-}
 		
         bool jumpInput = Input.GetButton("Jump");
         if (jumpInput && onGround)

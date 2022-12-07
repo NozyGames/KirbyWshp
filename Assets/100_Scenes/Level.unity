@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 10529532}
   m_Layer: 3
   m_Name: InWall2 (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 76978627}
   m_Layer: 3
   m_Name: Square (10)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 78722391}
   m_Layer: 3
   m_Name: Plateform1 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -543,7 +543,8 @@ GameObject:
   - component: {fileID: 94203430}
   - component: {fileID: 94203429}
   - component: {fileID: 94203431}
-  - component: {fileID: 94203432}
+  - component: {fileID: 94203435}
+  - component: {fileID: 94203436}
   - component: {fileID: 94203433}
   m_Layer: 7
   m_Name: Player
@@ -612,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94203428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.93, y: -4.09, z: 0}
+  m_LocalPosition: {x: -7.81, y: -4.15, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -627,7 +628,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94203428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b27e8047945bd7e4285342c5467d8a95, type: 3}
   m_Name: 
@@ -645,7 +646,39 @@ MonoBehaviour:
   pe: {fileID: 1309076684}
   sr: {fileID: 0}
   powerAction: 0
---- !u!50 &94203432
+--- !u!58 &94203433
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94203428}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.55
+--- !u!114 &94203435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94203428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d7031d14ed112468c06b4ce4171c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  jumpForce: 10
+  isTouchingWall: 0
+  onGround: 0
+--- !u!50 &94203436
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -666,22 +699,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &94203433
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94203428}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.55
 --- !u!1 &117987147
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +713,7 @@ GameObject:
   - component: {fileID: 117987151}
   m_Layer: 3
   m_Name: Cube2
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,7 +846,7 @@ GameObject:
   - component: {fileID: 135798152}
   m_Layer: 3
   m_Name: Square (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -962,7 +979,7 @@ GameObject:
   - component: {fileID: 150523837}
   m_Layer: 3
   m_Name: Part1
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1122,7 @@ GameObject:
   - component: {fileID: 232079385}
   m_Layer: 3
   m_Name: Square (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1255,7 @@ GameObject:
   - component: {fileID: 390538666}
   m_Layer: 3
   m_Name: InWall2 (5)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1371,7 +1388,7 @@ GameObject:
   - component: {fileID: 392449855}
   m_Layer: 3
   m_Name: Floor 2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1540,7 +1557,7 @@ GameObject:
   - component: {fileID: 450391572}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1673,7 +1690,7 @@ GameObject:
   - component: {fileID: 513018679}
   m_Layer: 3
   m_Name: Square (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1890,7 +1907,7 @@ GameObject:
   - component: {fileID: 538487562}
   m_Layer: 3
   m_Name: Plateform1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2023,7 +2040,7 @@ GameObject:
   - component: {fileID: 539232871}
   m_Layer: 3
   m_Name: Square (13)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2153,7 +2170,7 @@ GameObject:
   - component: {fileID: 599229750}
   m_Layer: 3
   m_Name: InWalls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,7 +2229,7 @@ GameObject:
   - component: {fileID: 621843876}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2346,7 +2363,7 @@ GameObject:
   - component: {fileID: 632682049}
   m_Layer: 3
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2493,7 +2510,7 @@ GameObject:
   - component: {fileID: 644813462}
   m_Layer: 3
   m_Name: Door3
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2636,7 +2653,7 @@ GameObject:
   - component: {fileID: 667588584}
   m_Layer: 3
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2693,7 +2710,7 @@ GameObject:
   - component: {fileID: 736633357}
   m_Layer: 3
   m_Name: Square (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2826,7 +2843,7 @@ GameObject:
   - component: {fileID: 748354251}
   m_Layer: 3
   m_Name: SJ_Wall1
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2960,7 +2977,7 @@ GameObject:
   - component: {fileID: 763499118}
   m_Layer: 3
   m_Name: Door2
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3164,7 +3181,7 @@ GameObject:
   - component: {fileID: 858130645}
   m_Layer: 3
   m_Name: Square (8)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3297,7 +3314,7 @@ GameObject:
   - component: {fileID: 865163942}
   m_Layer: 3
   m_Name: InWall2 (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3430,7 +3447,7 @@ GameObject:
   - component: {fileID: 865473846}
   m_Layer: 3
   m_Name: InWall2 (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3563,7 +3580,7 @@ GameObject:
   - component: {fileID: 879334512}
   m_Layer: 3
   m_Name: Square (4)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3696,7 +3713,7 @@ GameObject:
   - component: {fileID: 951159758}
   m_Layer: 3
   m_Name: InWall1
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3826,7 +3843,7 @@ GameObject:
   - component: {fileID: 958228804}
   m_Layer: 3
   m_Name: Doors
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3865,7 +3882,7 @@ GameObject:
   - component: {fileID: 1027500917}
   m_Layer: 3
   m_Name: Square (6)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3998,7 +4015,7 @@ GameObject:
   - component: {fileID: 1047873862}
   m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4131,7 +4148,7 @@ GameObject:
   - component: {fileID: 1054791929}
   m_Layer: 3
   m_Name: InWall2 (3)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4309,6 +4326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Batterie 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8562363735984099171, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
+      propertyPath: m_TagString
+      value: Walls
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
 --- !u!1 &1113236811
@@ -4325,7 +4346,7 @@ GameObject:
   - component: {fileID: 1113236815}
   m_Layer: 3
   m_Name: Plateform1 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4459,7 +4480,7 @@ GameObject:
   - component: {fileID: 1132504504}
   m_Layer: 3
   m_Name: Door1
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4605,7 +4626,7 @@ GameObject:
   - component: {fileID: 1154931242}
   m_Layer: 3
   m_Name: WallLeft
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4743,7 +4764,7 @@ GameObject:
   - component: {fileID: 1183992546}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4924,7 +4945,7 @@ GameObject:
   - component: {fileID: 1343341555}
   m_Layer: 3
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5061,7 +5082,7 @@ GameObject:
   - component: {fileID: 1432569044}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5194,7 +5215,7 @@ GameObject:
   - component: {fileID: 1484787748}
   m_Layer: 3
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5327,7 +5348,7 @@ GameObject:
   - component: {fileID: 1496303268}
   m_Layer: 3
   m_Name: WallRight
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5460,7 +5481,7 @@ GameObject:
   - component: {fileID: 1557793436}
   m_Layer: 3
   m_Name: InWall3
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5632,7 +5653,7 @@ GameObject:
   - component: {fileID: 1626991753}
   m_Layer: 3
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5765,7 +5786,7 @@ GameObject:
   - component: {fileID: 1692567459}
   m_Layer: 3
   m_Name: Floor 1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5960,7 +5981,7 @@ GameObject:
   - component: {fileID: 1769534964}
   m_Layer: 3
   m_Name: Part1 (1)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6093,7 +6114,7 @@ GameObject:
   - component: {fileID: 1788549366}
   m_Layer: 3
   m_Name: Part2 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6226,7 +6247,7 @@ GameObject:
   - component: {fileID: 1799853734}
   m_Layer: 3
   m_Name: Square (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6439,7 +6460,7 @@ GameObject:
   - component: {fileID: 1833038225}
   m_Layer: 3
   m_Name: InWall2 (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6572,7 +6593,7 @@ GameObject:
   - component: {fileID: 1843427373}
   m_Layer: 3
   m_Name: InWall1 (1)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6705,7 +6726,7 @@ GameObject:
   - component: {fileID: 1883963180}
   m_Layer: 3
   m_Name: Part2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6838,7 +6859,7 @@ GameObject:
   - component: {fileID: 1894192667}
   m_Layer: 3
   m_Name: InWall2 (9)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6971,7 +6992,7 @@ GameObject:
   - component: {fileID: 1932602723}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7105,7 +7126,7 @@ GameObject:
   - component: {fileID: 2047366814}
   m_Layer: 3
   m_Name: Door1 (1)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7251,7 +7272,7 @@ GameObject:
   - component: {fileID: 2082198585}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7384,7 +7405,7 @@ GameObject:
   - component: {fileID: 2110142778}
   m_Layer: 3
   m_Name: InWall2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7517,7 +7538,7 @@ GameObject:
   - component: {fileID: 2126235108}
   m_Layer: 3
   m_Name: Rooftop
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7870,6 +7891,10 @@ PrefabInstance:
     - target: {fileID: 8562363735984099171, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
       propertyPath: m_Name
       value: Batterie 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562363735984099171, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
+      propertyPath: m_TagString
+      value: Walls
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
