@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     public int distray;
     public float jumpForce;
     public bool onGround;
+    public float horizontalInput;
     [SerializeField]
     private GameObject[] Enemies;
-    public float horizontalInput;
+    [SerializeField]
+    private Sprite[] powerups;
     [HideInInspector]
     public PowerEffects pe;
     [HideInInspector]
@@ -36,8 +38,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region Controller
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime, 0);
 		
         bool jumpInput = Input.GetButton("Jump");
         if (jumpInput && onGround)
@@ -48,17 +50,22 @@ public class PlayerController : MonoBehaviour
         bool dropPower = Input.GetButtonUp("Drop");
         if (dropPower && power != 0)
         {
-            sr.color = new Color(255, 255, 255);
+            sr.sprite = powerups[0];
             power = 0;
             jumpForce = 5f;
             this.gameObject.layer = 7;
-            speed = 1.8f;
+            speed = 2f;
             Enemies[0].SetActive(true);
             Enemies[1].SetActive(true);
             Enemies[2].SetActive(true);
         }
         powerAction = Input.GetButton("PowerAction");
-        if (powerAction && power == 0) OnAbsorption();
+        if (powerAction && power == 0)
+        {
+            sr.sprite = powerups[4];
+            OnAbsorption();
+        }
+        else sr.sprite = powerups[0];
         #endregion
         #region Distray Inversion
         if (horizontalInput >= 0) distray = 1;
@@ -68,15 +75,15 @@ public class PlayerController : MonoBehaviour
         switch (power)
         {
             case 1:
-                sr.color = new Color(255, 0, 0);
+                sr.sprite = powerups[1];
                 pe.FirePower();
                 break;
             case 2:
-                sr.color = new Color(0, 255, 255);
+                sr.sprite = powerups[2];
                 if (powerAction) pe.IcePower();
                 break;
             case 3:
-                sr.color = new Color(255, 228, 0);
+                sr.sprite = powerups[3];
                 if (powerAction) pe.ElectricPower();
                 break;
         }
@@ -112,6 +119,6 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(1);
         }
-        onGround = true;
+        if (collision.gameObject.CompareTag("Ground")) onGround = true;
     }
 }
