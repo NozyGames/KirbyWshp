@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 1.5f;
+    public float speed = 1.8f;
     public int power;
     public int distray;
     public float jumpForce;
     public bool onGround;
+    public float horizontalInput;
     [SerializeField]
     private GameObject[] Enemies;
-    [HideInInspector]
-    public float horizontalInput;
+    [SerializeField]
+    private Sprite[] powerups;
     [HideInInspector]
     public PowerEffects pe;
     [HideInInspector]
@@ -18,6 +20,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool powerAction;
     Rigidbody2D rb;
+
+    private void Awake()
+    {
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +37,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region controller
+        #region Controller
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(speed * horizontalInput * Time.deltaTime, 0, 0);
+        transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime, 0);
+		
         bool jumpInput = Input.GetButton("Jump");
         if (jumpInput && onGround)
         {
@@ -42,38 +50,40 @@ public class PlayerController : MonoBehaviour
         bool dropPower = Input.GetButtonUp("Drop");
         if (dropPower && power != 0)
         {
-            sr.color = new Color(255, 255, 255);
+            sr.sprite = powerups[0];
             power = 0;
             jumpForce = 5f;
             this.gameObject.layer = 7;
-            speed = 1.5f;
+            speed = 2f;
             Enemies[0].SetActive(true);
             Enemies[1].SetActive(true);
             Enemies[2].SetActive(true);
         }
         powerAction = Input.GetButton("PowerAction");
-        if (powerAction && power == 0) OnAbsorption();
+        if (powerAction && power == 0)
+        {
+            sr.sprite = powerups[4];
+            OnAbsorption();
+        }
+        else sr.sprite = powerups[0];
         #endregion
         #region Distray Inversion
-        if (horizontalInput >= 0)
-        {
-            distray = 1;
-        }
+        if (horizontalInput >= 0) distray = 1;
         else distray = -1;
         #endregion
-        #region power
+        #region Power
         switch (power)
         {
             case 1:
-                sr.color = new Color(255, 0, 0);
+                sr.sprite = powerups[1];
                 pe.FirePower();
                 break;
             case 2:
-                sr.color = new Color(0, 255, 255);
+                sr.sprite = powerups[2];
                 if (powerAction) pe.IcePower();
                 break;
             case 3:
-                sr.color = new Color(255, 228, 0);
+                sr.sprite = powerups[3];
                 if (powerAction) pe.ElectricPower();
                 break;
         }
@@ -86,7 +96,7 @@ public class PlayerController : MonoBehaviour
         int layerMask = 1 << 6;
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector2.right) * distray, Color.red);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), distray, layerMask);
-        if (!hit) return;
+        if (!hit || hit.collider.gameObject.name == "Neutral" || hit.collider.gameObject.name == "Batteire 1" || hit.collider.gameObject.name == "Batterie 2") return;
         switch (hit.collider.gameObject.name)
         {
             case "Fire":
@@ -103,8 +113,12 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        onGround = true;
+        if (collision.collider.gameObject.name == "EndBox")
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (collision.gameObject.CompareTag("Ground")) onGround = true;
     }
 }
