@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    #region F/P
     public float speed = 1.8f;
     public int power;
     public int distray;
@@ -20,17 +21,20 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool powerAction;
     Rigidbody2D rb;
-
-    private void Awake()
-    {
-
-    }
+    [SerializeField]
+    GameObject aspiration;
+    [SerializeField]
+    SpriteRenderer aspirationSr;
+    #endregion
     // Start is called before the first frame update
     void Start()
     {
         distray = 1;
         rb = this.GetComponent<Rigidbody2D>();
         sr = this.GetComponent<SpriteRenderer>();
+        aspiration = FindObjectOfType<GameObject>(name == "Aspiration");
+        aspiration.transform.position = new Vector3(0, 0, 0);
+        aspirationSr = FindObjectOfType<SpriteRenderer>(name == "Aspiration");
         jumpForce = 5f;
     }
 
@@ -41,7 +45,7 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime, 0);
 		
-        bool jumpInput = Input.GetButton("Jump");
+        bool jumpInput = Input.GetButton("Jumping");
         if (jumpInput && onGround)
         {
             onGround = false;
@@ -63,13 +67,30 @@ public class PlayerController : MonoBehaviour
         if (powerAction && power == 0)
         {
             sr.sprite = powerups[4];
+            aspiration.SetActive(true);
             OnAbsorption();
         }
-        else sr.sprite = powerups[0];
+        else
+        {
+            sr.sprite = powerups[0];
+            aspiration.SetActive(false);
+        }
         #endregion
         #region Distray Inversion
-        if (horizontalInput >= 0) distray = 1;
-        else distray = -1;
+        if (horizontalInput >= 0)
+        {
+            aspiration.transform.localPosition = new Vector3(1, 0, 0);
+            aspirationSr.flipY = false;
+            distray = 1;
+            sr.flipX = false;
+        }
+        else
+        {
+            aspiration.transform.localPosition = new Vector3(-1, 0, 0);
+            aspirationSr.flipY = true;
+            distray = -1;
+            sr.flipX = true;
+        }
         #endregion
         #region Power
         switch (power)
