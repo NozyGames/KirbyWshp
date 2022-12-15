@@ -143,7 +143,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.gameObject.name == "EndBox")
         {
-            SceneManager.LoadScene(1);
+            int ha = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(ha+1);
         }
         if (collision.gameObject.CompareTag("Ground")) onGround = true;
     }

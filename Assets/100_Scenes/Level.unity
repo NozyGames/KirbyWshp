@@ -8071,8 +8071,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632682044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.257, y: -0.5319, z: -0.016569052}
-  m_LocalScale: {x: 0.23, y: 1.5742524, z: 1}
+  m_LocalPosition: {x: 12.1909, y: -0.5319, z: -0.016569052}
+  m_LocalScale: {x: 0.362273, y: 1.5742524, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 958228804}
@@ -8120,7 +8120,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4245283, g: 0.2836364, b: 0.1982467, a: 1}
+  m_Color: {r: 0.745283, g: 0.44065693, b: 0.26295832, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10356,7 +10356,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Batterie 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5822275258507795129, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
 --- !u!1 &1132504499
 GameObject:
@@ -13692,6 +13693,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2018515969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8562363735984099171, guid: eaa35c0b320246c488164c5468f7a1b0, type: 3}
+  m_PrefabInstance: {fileID: 1060000930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2018515974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018515969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 047257ee3aa38e34fada12ee2f969729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOn: 0
+  door: {fileID: 644813462}
 --- !u!1 &2070029393
 GameObject:
   m_ObjectHideFlags: 0
