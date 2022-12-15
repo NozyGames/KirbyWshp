@@ -10,19 +10,18 @@ public class EnemyFrozen : MonoBehaviour
     bool isWaddle = true;
     Rigidbody2D rb;
     [SerializeField]
-    GameObject IceBlock;
+    SpriteRenderer IceBlock;
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        //IceBlock = FindObjectOfType<GameObject>(name == "IceBlock");
-        //IceBlock.SetActive(false);
+        IceBlock.color = new Color(0, 255, 12, 0);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.gameObject.name == "Ice Bullet(Clone)" && isWaddle)
         {
             isFrozen = true;
-            //if (isFrozen) IceBlock.SetActive(true);
+            if (isFrozen) IceBlock.color = new Color(0, 255, 12, 100);
             Destroy(collision.collider.gameObject);
         }
         if (collision.collider.gameObject.name == "Player" && isFrozen)
