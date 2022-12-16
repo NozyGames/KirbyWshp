@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     SpriteRenderer aspirationSr;
     [SerializeField]
-    ParticleSystem woosh;
+    ParticleSystem[] woosh;
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             onGround = false;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            if (power == 1) woosh[1].Play();
         }
         bool dropPower = Input.GetButtonUp("Drop");
         if (dropPower && power != 0)
@@ -124,15 +125,15 @@ public class PlayerController : MonoBehaviour
         {
             case "Fire":
                 power = 1;
-                woosh.Play();
+                woosh[0].Play();
                 break;
             case "Ice":
                 power = 2;
-                woosh.Play();
+                woosh[0].Play();
                 break;
             case "Electric":
                 power = 3;
-                woosh.Play();
+                woosh[0].Play();
                 break;
         }
         hit.collider.gameObject.SetActive(false);
